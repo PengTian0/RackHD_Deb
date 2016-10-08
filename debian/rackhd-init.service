@@ -1,0 +1,12 @@
+[Unit]
+Description=RackHD Initialization Service
+Requires=rabbitmq-server.service mongodb.service
+After=rabbitmq-server.service mongodb.service
+
+[Service]
+Type=simple
+ExecStart=/opt/rackhd/bin/rackhd-init
+
+[Install]
+Alias=rackhd-init
+WantedBy=multi-user.target
